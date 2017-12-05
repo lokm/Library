@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 100vw;
+  grid-template-rows: 13vh 6vh 9vh 3fr 1fr;
+  grid-template-areas: "header"
+                       "nav"
+                       "aside"
+                       "section"
+                       "footer";
+  color: black;
+}
+
+header {
+  grid-area: header;
+  background-color: rgb(200, 200, 200);
+	line-height: 1em;
+}
+h1 {
+  text-align: center;
+	
+}
+h2 {
+	text-decoration: underline;
+	font-size:1.3em;
+	margin-bottom:0;
+}
+h4 {
+	margin-top:0;
+}
+nav {
+  grid-area: nav;
+  background-color: black;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: space-around;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+}
+section {
+  grid-area: section;
+  background-color: white;
+  padding: 1em;
+  color: black;
+  display: flex;
+  -webkit-flex-flow: wrap row;
+  	flex-flow: wrap row;
+}
+article {
+  text-align: left;
+  width:20vw;
+  min-width:245px;
+  margin:1vw;
+}
+article table {
+  border-spacing:0;
+  margin: 0 auto;
+  border-radius: 0.5em;
+}
+article p {
+	font-style: italic;
+}
+article p:last-child {
+	font-style: normal;
+	text-align: right;
+}
+article table, article th, article tr, article td {
+  border:0.1em solid black;
+}
+article td, article th {
+  padding: 1em;
+}
+tr:first-child th:first-child {
+	border-top-left-radius: 0.5em;
+}
+tr:first-child th:last-child {
+	border-top-right-radius: 0.5em;
+}
+tr:last-child td:first-child {
+	border-bottom-left-radius: 0.5em;
+}
+tr:last-child td:last-child {
+	border-bottom-right-radius: 0.5em;
+}
+aside {
+  grid-area: aside;
+  background-color: white;
+  padding: 1em;
+}
+aside form {
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: center;
+  align-items:center;
+  justify-content: flex-end;
+}
+aside input {
+  padding: 0 1vw;
+  margin: 0 1%;
+  border: none;
+  border-radius: 0.5em;
+  line-height: 2em;
+  height: 2em;
+  width: 10vw;
+  min-width: 85px;
+  border:0.1em solid black;
+}
+aside input[type="submit"] {
+  width: 7em;
+  background-color: rgb(200, 200, 200)
+}
+footer {
+  grid-area: footer;
+  background-color: rgb(200, 200, 200);
+  line-height:1em;
+}
