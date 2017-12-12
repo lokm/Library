@@ -1,17 +1,21 @@
 package fr.lokm.model.dao;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Driver;
+
+import fr.lokm.model.beans.Author;
+import fr.lokm.model.beans.Book;
+import fr.lokm.model.beans.User;
 
 
 
 public class DAOFactory {
 
     private static DAOFactory instance;
-    private static Connection cnx;
+
     private static String url;
     private static String user;
     private static String password;
@@ -22,12 +26,13 @@ public class DAOFactory {
     	DAOFactory.password = password;
     }
 
+    // Creer une instance si elle est inexistante, sinon revoie l'instance
     public static DAOFactory getInstance() {
         if(null == instance) {
             instance = new DAOFactory(
                 "jdbc:mysql://localhost:3306/library",
-                "vincent",
-                "admin");
+                "root",
+                "");
         };
 
         try {
@@ -38,21 +43,22 @@ public class DAOFactory {
 
         return instance;
     }
-
-    public static Connection getConnection() {
+    
+    // Creer et retourne un connection
+    public Connection getConnection() {
         
-    	if (DAOFactory.instance == null) {
-    		DAOFactory.instance = DAOFactory.getInstance();
-    	}
+    	Connection cnx = null;
     	
-    	try {DriverManager.getConnection(url, user, password);
+    	try {
+    		cnx = DriverManager.getConnection(url, user, password);
    		} catch (SQLException e) {
    			e.printStackTrace();
    		}
         return cnx;
     }
     
-    public static void closeConnection() {
+    // Ferme la connection
+    public void closeConnection(Connection cnx) {
     	try {
     		if (null != cnx && !cnx.isClosed()) {
     			cnx.close();
@@ -61,7 +67,17 @@ public class DAOFactory {
     		e.printStackTrace();
     	}
     }
-     BookDAO getBookDAO () {
+    
+    // Instance DAO
+     public InterfaceDAO<Book> getBookDAO () {
         return new BookDAOImpl();
     }
+     
+     public InterfaceDAO<Author> getAuthorDAO () {
+         return new AuthorDAOImpl();
+     }
+     
+     public InterfaceDAO<User> getUserDAO () {
+         return new UserDAOImpl();
+     }
 }

@@ -14,7 +14,7 @@ public class Book {
 	public Book() {
 		authors = new LinkedHashSet<Author>();
 	}
-	public Book(String title, String overview, int price, boolean availability, Set<Author> authors) {
+	public Book(String title, String overview, float price, boolean availability, Set<Author> authors) {
 		this();
 		this.title = title;
 		this.overview = overview;
@@ -22,7 +22,7 @@ public class Book {
 		this.availability = availability;
 		this.authors = authors;
 	}
-	public Book(int id, String title, String overview, int price, boolean availability, Set<Author> authors) {
+	public Book(int id, String title, String overview, float price, boolean availability, Set<Author> authors) {
 		this(title, overview, price, availability, authors);
 		this.id = id;
 	}

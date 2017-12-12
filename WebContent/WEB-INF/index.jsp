@@ -25,52 +25,15 @@
   	<article>
   		<h2>${book.title}</h2>
   		<h4>
-  		<c:forEach items="${book.authors}" var="author">
+  		<c:forEach items="${authors}" var="author">
   			${author.firstname} ${author.lastname} (${author.native_country}) <br />
   		</c:forEach>
   		</h4>
   		<p>"${book.overview}"</p>
-  		<p>${book.price} €, <c:out value="${book.availability eq 'true' ? 'en stock': 'indisponible'}"/></p>
+  		<p>${book.price} € <br />
+  		<c:out value="${book.availability eq 'true' ? 'en stock': 'indisponible'}"/></p>
   	</article>
     </c:forEach>
-    <%-- <article>
-      <table>
-        <tr>
-          <th>Titre</th>
-          <th>résumé</th>
-          <th>Disponible</th>
-          <th>Prix</th>
-        </tr>
-        <c:forEach items="${books}" var="book">
-        <tr>
-          <td>${book.title}</td>
-          <td>${book.overview}</td>
-          <td><c:out value="${book.availability eq 'true' ? 'disponile': 'non disponible'}"/></td>
-
-          <td>${book.price}</td>
-        </tr>
-        	
-        </c:forEach>
-      </table>
-    </article>
- --%>    <br />
-   <%--  <article>
-    	<table>
-        <tr>
-          <th>ID</th>
-          <th>Prénom</th>
-          <th>Nom</th>
-        </tr>
-        <c:forEach items="${authors}" var="author">
-        <tr>
-          <td>${author.id}</td>
-          <td>${author.lastname}</td>
-          <td>${author.firstname}</td>
-        </tr>
-        	
-        </c:forEach>
-      </table> 
-    </article>--%>
   </section>
   <aside>
     <form action="">

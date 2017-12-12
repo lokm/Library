@@ -48,10 +48,11 @@ section {
   display: flex;
   -webkit-flex-flow: wrap row;
   	flex-flow: wrap row;
+  	justify-content: center;
 }
 article {
   text-align: left;
-  width:20vw;
+  width:22vw;
   min-width:245px;
   margin:1vw;
 }
