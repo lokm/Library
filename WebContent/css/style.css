@@ -2,11 +2,11 @@ body {
   margin: 0;
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 13vh 6vh 9vh 3fr 1fr;
+  grid-template-rows: 13vh 6vh 50vh 3fr 1fr;
   grid-template-areas: "header"
                        "nav"
                        "aside"
-                       "section"
+                       "main"
                        "footer";
   color: black;
 }
@@ -41,7 +41,7 @@ nav a {
   color: white;
 }
 section {
-  grid-area: section;
+  grid-area: main;
   background-color: white;
   padding: 1em;
   color: black;
@@ -98,7 +98,13 @@ aside form {
   align-items:center;
   justify-content: flex-end;
 }
-aside input {
+form select {
+	height: 5em!important;
+}
+section {
+	margin-bottom:1vw;
+}
+aside input, section input, form select {
   padding: 0 1vw;
   margin: 0 1%;
   border: none;
@@ -108,6 +114,19 @@ aside input {
   width: 10vw;
   min-width: 85px;
   border:0.1em solid black;
+}
+form div label {
+display:flex;
+flex-flow: row nowrap;
+justify-content:flex-start;
+  align-items:center;
+}
+input[type="radio"] {
+	margin:0;
+	
+}
+div label span {
+	
 }
 aside input[type="submit"] {
   width: 7em;

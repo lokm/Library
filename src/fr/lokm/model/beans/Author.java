@@ -1,12 +1,39 @@
 package fr.lokm.model.beans;
 
-//import fr.lokm.model.utils.Country;
+import java.io.Serializable;
 
-public class Author {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+//import fr.lokm.model.utils.Country;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Author implements Serializable {
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	@Column(length=70, nullable=false)
 	private String firstname;
+	@Column(length=70, nullable=false)
 	private String lastname;
+	@Column(length=70, nullable=false)
 	private String native_country;
+	
+//	@ManyToMany(cascade=CascadeType.PERSIST)
+//	@JoinTable(
+//			name="authors_books",
+//			joinColumns=@JoinColumn(name="author_id", referencedColumnName="id",foreignKey=@ForeignKey(name="fk_author")),
+//			inverseJoinColumns=@JoinColumn(name="book_id", referencedColumnName="id", foreignKey=@ForeignKey(name="fk_book")))
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="book_id", referencedColumnName="id", foreignKey=@ForeignKey(name="fk_book"))
+	private Book book;
 	
 	public Author() {}
 	public Author(String firstname, String lastname, String native_country) {
@@ -42,6 +69,22 @@ public class Author {
 	public void setNative_country(String native_country) {
 		this.native_country = native_country;
 	}
-
+//	public List<Book> getBooks() {
+//		return books;
+//	}
+//	public void setBooks(List<Book> books) {
+//		this.books = books;
+//	}
+//
+//	public void addBooks(Book book) {
+//		this.books.add(book);
+//		book.addAuthor(this);
+//	}
+	public Book getBook() {
+		return book;
+	}
+	public void setBook(Book book) {
+		this.book = book;
+	}
 	
 }
