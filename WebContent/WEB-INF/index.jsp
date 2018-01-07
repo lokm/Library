@@ -12,7 +12,7 @@
 </head>
 <body>
 	<header>
-		<h1>Titre</h1>
+		<h1>Librairie</h1>
 	</header>
 		<c:choose>
 			<c:when test="${!empty user }">
@@ -56,23 +56,20 @@
 		<c:forEach items="${books}" var="book">
 			<c:choose>
 				<c:when test="${bookid == book.id}">
-					<article>
-						<input type="text" value="${book.title}" name="book-title"
-							form="form-editbook" /><input type="text"
-							value="${book.overview}" name="book-overview"
-							form="form-editbook" /><input type="text"
-							value="${book.availability}" name="book-availability"
-							form="form-editbook" /><input type="text" value="${book.price}"
-							name="book-price" form="form-editbook" />
+					<article class="edit">
+						<input type="submit" value="Editer" form="form-editbook" />
+						<input type="text" value="${book.title}" name="book-title" form="form-editbook" />
 						<c:forEach items="${book.authors}" var="author">
-							<input type="text" value="${author.firstname}"
+							<input class="author" type="text" value="${author.firstname}"
 								name="author-firstname-${author.id}" form="form-editbook" />
-							<input type="text" value="${author.lastname}"
+							<input class="author" type="text" value="${author.lastname}"
 								name="author-lastname-${author.id}" form="form-editbook" />
-							<input type="text" value="${author.native_country}"
+							<input class="author" type="text" value="${author.native_country}"
 								name="author-native_country-${author.id}" form="form-editbook" />
 						</c:forEach>
-						<br /> <input type="submit" value="Editer" form="form-editbook" />
+							<input class="overview" type="text" value="${book.overview}" name="book-overview" form="form-editbook" />
+							<input class= "tinyInput" type="text" value="${book.availability}" name="book-availability" form="form-editbook" />
+							<input class= "tinyInput" type="text" value="${book.price}" name="book-price" form="form-editbook" />
 					</article>
 				</c:when>
 				<c:otherwise>

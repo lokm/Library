@@ -6,12 +6,13 @@ body {
   grid-template-areas: "header"
                        "aside"
                        "section";
-  color: black;
+  color: white;
+  background-color:rgb(30, 11, 4);
 }
 
 header {
   grid-area: header;
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(125, 48, 18);
 	line-height: 1em;
 }
 h1 {
@@ -30,27 +31,49 @@ h4 {
 a {
 	text-decoration:none;
 }
+aside {
+  grid-area: aside;
+  background-color: white;
+  padding:1em;
+  text-align: right;
+  background-color:rgb(30, 11, 4);
+}
+aside form {
+	padding-bottom:1em;
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: center;
+  align-items:center;
+  justify-content: flex-end;
+}
 section {
   grid-area: section;
+  padding-left: 4vw;
   background-color: white;
-  padding: 1em;
   color: black;
   display: flex;
   -webkit-flex-flow: wrap row;
   	flex-flow: wrap row;
-  	justify-content: center;
-}
-article a {
-	color: black;
-	float:right;
-	margin-left:0.5em;
-	font-size: 1.5em;
+  	justify-content: flex-start;
+  	align-items: flex-start;
+  	align-content:flex-start;
+  	background-color:rgb(30, 11, 4);
 }
 article {
   text-align: left;
-  width:22vw;
-  min-width:245px;
-  margin:1vw;
+  width:20vw;
+  margin-right:0.7em;
+  margin-bottom:0.7em;
+  padding:0 1vw;
+  border-radius:0.5em;
+  color: white;
+  background-color: rgb(125, 48, 18);
+}
+article a {
+	color: white;
+	float:right;
+	margin-left:0.5em;
+	font-size: 1.5em;
 }
 article p {
 	font-style: italic;
@@ -58,37 +81,6 @@ article p {
 article p:last-child {
 	font-style: normal;
 	text-align: right;
-}
-article table, article th, article tr, article td {
-  border:0.1em solid black;
-}
-article td, article th {
-  padding: 1em;
-}
-tr:first-child th:first-child {
-	border-top-left-radius: 0.5em;
-}
-tr:first-child th:last-child {
-	border-top-right-radius: 0.5em;
-}
-tr:last-child td:first-child {
-	border-bottom-left-radius: 0.5em;
-}
-tr:last-child td:last-child {
-	border-bottom-right-radius: 0.5em;
-}
-aside {
-  grid-area: aside;
-  background-color: white;
-  padding:1em;
-  text-align: right;
-}
-aside form {
-  display: flex;
-  flex-flow: row nowrap;
-  align-content: center;
-  align-items:center;
-  justify-content: flex-end;
 }
 form select {
 	height: 5em!important;
@@ -104,8 +96,7 @@ aside input, section input, form select {
   line-height: 2em;
   height: 2em;
   width: 10vw;
-  min-width: 85px;
-  border:0.1em solid black;
+  border:none;
 }
 form div label {
 display:flex;
@@ -115,17 +106,34 @@ justify-content:flex-start;
 }
 input[type="radio"] {
 	margin:0;
+	width:2vw;
 	
 }
 div label span {
 	
 }
-aside input[type="submit"] {
+aside input[type="submit"], aside input[type="button"] {
   width: 9em;
-  background-color: rgb(200, 200, 200)
+  background-color: rgb(125, 48, 18);
+  color:white;
 }
-footer {
-  grid-area: footer;
-  background-color: rgb(200, 200, 200);
-  line-height:1em;
+.edit {
+	padding:0.5em;
+}
+.edit input {
+	margin-bottom:0.5em;
+}
+.edit input:first-child {
+	float:right;
+	width: 4vw;
+}
+.edit .overview {
+	width: 19.55vw;
+}
+.edit .tinyInput {
+	width: 2vw;
+	float:right;
+}
+.edit .author {
+	width: 4.7vw;
 }
