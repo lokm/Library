@@ -7,12 +7,13 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 @Entity
 public class Book implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -28,7 +29,19 @@ public class Book implements Serializable {
 	@Column(columnDefinition="TEXT")
 	private String overview;
 	
-	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="book",  fetch=FetchType.EAGER)
+//	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="book",  fetch=FetchType.EAGER)
+//	@ManyToMany
+//	@JoinTable(
+//		name="Authors_Books",
+//		joinColumns=@JoinColumn(name="author_id", referencedColumnName="id", foreignKey=@ForeignKey(name="fk_authors")),
+//		inverseJoinColumns=@JoinColumn(name="book_id", referencedColumnName="id", foreignKey=@ForeignKey(name="fk_books"))
+//)
+	@ManyToMany(cascade=CascadeType.PERSIST)
+	@JoinTable(
+			name="Authors_Books",
+			joinColumns=@JoinColumn(name="author_id", referencedColumnName="id", foreignKey=@ForeignKey(name="fk_authors")),
+			inverseJoinColumns=@JoinColumn(name="book_id", referencedColumnName="id", foreignKey=@ForeignKey(name="fk_books"))
+				)
 	private List<Author> authors = new ArrayList<Author>();
 	
 	public Book() {}
@@ -84,5 +97,6 @@ public class Book implements Serializable {
 	
 	public void addAuthor(Author author) {
 		this.authors.add(author);
+		author.addBooks(this);
 	}
 }

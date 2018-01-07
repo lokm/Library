@@ -2,12 +2,10 @@ body {
   margin: 0;
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 13vh 6vh 50vh 3fr 1fr;
+  grid-template-rows: 13vh 1fr 3fr;
   grid-template-areas: "header"
-                       "nav"
                        "aside"
-                       "main"
-                       "footer";
+                       "section";
   color: black;
 }
 
@@ -21,6 +19,7 @@ h1 {
 	
 }
 h2 {
+	display:inline-block;
 	text-decoration: underline;
 	font-size:1.3em;
 	margin-bottom:0;
@@ -28,20 +27,11 @@ h2 {
 h4 {
 	margin-top:0;
 }
-nav {
-  grid-area: nav;
-  background-color: black;
-  display: flex;
-  flex-flow: row wrap;
-  align-content: center;
-  justify-content: space-around;
-}
-nav a {
-  text-decoration: none;
-  color: white;
+a {
+	text-decoration:none;
 }
 section {
-  grid-area: main;
+  grid-area: section;
   background-color: white;
   padding: 1em;
   color: black;
@@ -50,16 +40,17 @@ section {
   	flex-flow: wrap row;
   	justify-content: center;
 }
+article a {
+	color: black;
+	float:right;
+	margin-left:0.5em;
+	font-size: 1.5em;
+}
 article {
   text-align: left;
   width:22vw;
   min-width:245px;
   margin:1vw;
-}
-article table {
-  border-spacing:0;
-  margin: 0 auto;
-  border-radius: 0.5em;
 }
 article p {
 	font-style: italic;
@@ -89,7 +80,8 @@ tr:last-child td:last-child {
 aside {
   grid-area: aside;
   background-color: white;
-  padding: 1em;
+  padding:1em;
+  text-align: right;
 }
 aside form {
   display: flex;
@@ -129,7 +121,7 @@ div label span {
 	
 }
 aside input[type="submit"] {
-  width: 7em;
+  width: 9em;
   background-color: rgb(200, 200, 200)
 }
 footer {

@@ -10,7 +10,7 @@ public class principale {
 	public static void main(String[] args) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/library", "vincent", "admin");
+			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/library", "root", "");
 			Statement statement = cnx.createStatement();
 			ResultSet result = statement.executeQuery("SELECT * FROM Author");
 			
