@@ -70,7 +70,7 @@ article {
   background-color: rgb(125, 48, 18);
 }
 article a {
-	color: white;
+	color: rgb(30, 11, 4);
 	float:right;
 	margin-left:0.5em;
 	font-size: 1.5em;
@@ -116,6 +116,7 @@ aside input[type="submit"], aside input[type="button"] {
   width: 9em;
   background-color: rgb(125, 48, 18);
   color:white;
+  cursor:  pointer;
 }
 .edit {
 	padding:0.5em;
@@ -126,14 +127,20 @@ aside input[type="submit"], aside input[type="button"] {
 .edit input:first-child {
 	float:right;
 	width: 4vw;
+	background-color:rgb(30, 11, 4);
+	color:white;
+	cursor:  pointer;
+}
+.edit .title {
+	width: 10.9vw;
 }
 .edit .overview {
-	width: 19.55vw;
+	width: 17.6vw;
 }
 .edit .tinyInput {
 	width: 2vw;
 	float:right;
 }
 .edit .author {
-	width: 4.7vw;
+	width: 4.07vw;
 }

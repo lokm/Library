@@ -58,7 +58,7 @@
 				<c:when test="${bookid == book.id}">
 					<article class="edit">
 						<input type="submit" value="Editer" form="form-editbook" />
-						<input type="text" value="${book.title}" name="book-title" form="form-editbook" />
+						<input class="title" type="text" value="${book.title}" name="book-title" form="form-editbook" />
 						<c:forEach items="${book.authors}" var="author">
 							<input class="author" type="text" value="${author.firstname}"
 								name="author-firstname-${author.id}" form="form-editbook" />
